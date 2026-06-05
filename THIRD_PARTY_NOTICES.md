@@ -27,6 +27,11 @@ werden diese Komponenten mitverteilt. Ihre Lizenzen:
 - **CPython (PSF)** und **NumPy (BSD)** sind permissiv; ihre vollständigen
   Lizenztexte liegen im Bundle unter
   `python\LICENSE.txt` bzw. `python\Lib\site-packages\numpy-*.dist-info\`.
+- Der mitgelieferte Python enthält einige kleine Support-Pakete (z. B. NumPy und
+  dessen Hilfsbibliotheken). **Jedes mitgelieferte Paket behält seinen eigenen
+  Lizenztext** in seinem `…dist-info`-Ordner unter
+  `python\Lib\site-packages\` — die Urheber-/Lizenzhinweise werden also
+  unverändert mitverteilt.
 
 > Hinweis: Diese Übersicht ist eine Hilfestellung, keine Rechtsberatung. Bei
 > kommerzieller/abgewandelter Weitergabe im Zweifel die jeweiligen
