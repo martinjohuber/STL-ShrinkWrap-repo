@@ -1,0 +1,13 @@
+# Fertiges portables Bundle und ZIP nicht ins Git committen
+# (stattdessen als GitHub-Release-Asset anhängen)
+STL-ShrinkWrap-Portable/
+STL-ShrinkWrap-Portable.zip
+
+# Build-/Temp-Artefakte
+build/
+dist/
+*.spec
+__pycache__/
+*.pyc
+.venv/
+icon_preview.png
