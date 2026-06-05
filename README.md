@@ -24,7 +24,7 @@ creating supports/negatives. It wraps the wonderful **[PyMeshLab](https://github
 ## ⬇️ Download & run (no Python needed)
 
 1. Go to the [**Releases**](../../releases) page and download a portable ZIP:
-   - `STL-ShrinkWrap-Portable.zip` — starts in **German**
+   - `STL-ShrinkWrap-Portable-DE.zip` — starts in **German**
    - `STL-ShrinkWrap-Portable-EN.zip` — starts in **English**
 2. **Unzip the whole folder** somewhere (Desktop is fine).
 3. Double-click **`STL-ShrinkWrap.exe`**.
