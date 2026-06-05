@@ -32,6 +32,9 @@ echo [1/3] Kopiere portablen Python ...
 robocopy "%PREFIX%" "%BUNDLE%\python" /E /NFL /NDL /NJH /NJS /NP /R:1 /W:1 ^
     /XD Doc Tools test tests __pycache__ idlelib >nul
 copy /y "stl_shrinkwrap.py" "%BUNDLE%\stl_shrinkwrap.py" >nul
+if exist "icon.ico" copy /y "icon.ico" "%BUNDLE%\icon.ico" >nul
+REM Startsprache des Bundles (de oder en); fuer ein EN-Bundle einfach "en" hineinschreiben
+echo de> "%BUNDLE%\language.txt"
 
 echo [2/3] Stelle PyInstaller bereit ...
 %PY% -m pip install --user --quiet --upgrade pyinstaller

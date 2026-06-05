@@ -18,13 +18,18 @@ creating supports/negatives. It wraps the wonderful **[PyMeshLab](https://github
 
 ## ⬇️ Download & run (no Python needed)
 
-1. Go to the [**Releases**](../../releases) page and download
-   `STL-ShrinkWrap-Portable.zip`.
+1. Go to the [**Releases**](../../releases) page and download a portable ZIP:
+   - `STL-ShrinkWrap-Portable.zip` — starts in **German**
+   - `STL-ShrinkWrap-Portable-EN.zip` — starts in **English**
 2. **Unzip the whole folder** somewhere (Desktop is fine).
 3. Double-click **`STL-ShrinkWrap.exe`**.
 
 That's it — no installation, no Python, no internet connection. A complete Python
 runtime (with PyMeshLab) ships inside the `python\` subfolder.
+
+> **Language:** both downloads contain the **same app** with a **DE/EN switcher**
+> in the top-right corner — the only difference is which language they start in.
+> So either ZIP works; pick whichever default you prefer.
 
 > **When sharing:** always pass on the **entire folder** (or the `.zip`), not just
 > the `.exe`. The launcher needs the `python\` folder and `stl_shrinkwrap.py`
@@ -40,6 +45,9 @@ runtime (with PyMeshLab) ships inside the `python\` subfolder.
    - **smaller** → finer detail, hull hugs the model more tightly
    - **larger** → coarser, more aggressively shrunk
 4. Click **Start**. A running bar + elapsed time shows it's working.
+
+You can switch the interface language (Deutsch / English) anytime via the
+dropdown in the top-right corner.
 
 ### Why only one parameter?
 PyMeshLab's `generate_alpha_wrap` has two: `alpha_fraction` (how tightly the hull
