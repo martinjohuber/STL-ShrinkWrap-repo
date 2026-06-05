@@ -12,8 +12,7 @@ clean, watertight shell — perfect for 3D printing, simplifying assemblies, or
 creating supports/negatives. It wraps the wonderful **[PyMeshLab](https://github.com/cnr-isti-vclab/PyMeshLab)**
 `generate_alpha_wrap` filter in a friendly one-window GUI.
 
-<!-- Add a screenshot here: drop an image into the repo and reference it, e.g.
-![STL ShrinkWrap](screenshots/app.png) -->
+![STL ShrinkWrap — the app window](screenshots/app.png)
 
 ---
 
