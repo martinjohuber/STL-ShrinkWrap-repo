@@ -144,6 +144,29 @@ def detect_lang():
 
 
 # ---------------------------------------------------------------------------
+def _alpha_wrap(pymeshlab, ms, alpha):
+    """Alpha-Wrap aufrufen — versionsrobust ueber PyMeshLab-Versionen hinweg.
+
+    - PyMeshLab <= 2023.12:  generate_alpha_wrap(alpha_fraction=<float>)
+                             (alpha_fraction = Anteil der BBox-Diagonale)
+    - PyMeshLab >= 2024/2025: generate_alpha_wrap(alpha=PercentageValue(<prozent>))
+                             (alpha als Prozent-Objekt; 0.005 -> 0.5 %)
+    """
+    try:
+        ms.generate_alpha_wrap(alpha_fraction=alpha)
+        return
+    except Exception:  # noqa: BLE001
+        pass
+    pct_cls = (getattr(pymeshlab, "PercentageValue", None)
+               or getattr(pymeshlab, "Percentage", None))
+    if pct_cls is None:
+        # Letzter Versuch: roher Wert (falls eine ganz andere API vorliegt)
+        ms.generate_alpha_wrap(alpha=alpha)
+        return
+    ms.generate_alpha_wrap(alpha=pct_cls(alpha * 100.0))
+
+
+# ---------------------------------------------------------------------------
 # WORKER-MODUS  (laeuft headless, gibt Fortschritt zeilenweise auf stdout aus)
 # Fehler werden als sprachneutrale Codes gemeldet (ERRCODE <name>), die die GUI
 # uebersetzt. Unerwartete Ausnahmen kommen als roher Text (ERROR ...).
@@ -186,7 +209,7 @@ def run_worker(in_path, out_path, alpha):
                 return 1
 
             emit("PHASE wrap")
-            ms.generate_alpha_wrap(alpha_fraction=float(alpha))
+            _alpha_wrap(pymeshlab, ms, float(alpha))
 
             emit("PHASE save")
             ms.save_current_mesh(tmp_out)
