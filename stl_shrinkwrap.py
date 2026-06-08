@@ -400,8 +400,11 @@ def run_gui():
         if getattr(sys, "frozen", False):
             cmd = [sys.executable, "--worker", in_path, out_path, repr(alpha)]
         else:
-            cmd = [sys.executable, os.path.abspath(__file__), "--worker",
-                   in_path, out_path, repr(alpha)]
+            # -s: kein User-Site-Verzeichnis · -E: PYTHON*-Umgebungsvariablen
+            # ignorieren -> der Worker nutzt GARANTIERT das mitgelieferte
+            # PyMeshLab und nicht eine evtl. neuere Version auf dem Host-System.
+            cmd = [sys.executable, "-s", "-E", os.path.abspath(__file__),
+                   "--worker", in_path, out_path, repr(alpha)]
 
         creationflags = 0
         if os.name == "nt":

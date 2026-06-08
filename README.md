@@ -108,8 +108,12 @@ ms.save_current_mesh("output wrap.stl")
 ```
 
 Small robustness touches on top: input/output are staged through ASCII temp paths
-(so filenames with umlauts/spaces work), and meshes with no geometry are rejected
-with a clear message instead of crashing.
+(so filenames with umlauts/spaces work); meshes with no geometry are rejected with
+a clear message instead of crashing; the bundled PyMeshLab runs in an **isolated**
+process (`python -s -E`) so a different PyMeshLab installed elsewhere on the host
+can't shadow it; and the alpha-wrap call is **version-tolerant** — newer PyMeshLab
+renamed the parameter (`alpha_fraction` → `alpha=PercentageValue(...)`), and the
+app handles both.
 
 ### Why a portable Python folder instead of one single `.exe`?
 Bundling PyMeshLab into a single PyInstaller `--onefile` executable was tested and
